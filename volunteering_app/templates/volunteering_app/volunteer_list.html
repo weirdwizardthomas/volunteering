@@ -1,0 +1,14 @@
+{% if volunteers_list %}
+    <ul>
+        {% for volunteer in volunteers_list %}
+            <li>
+                <a href="{% url 'volunteer' volunteer.pk %}">
+                    Name {{ volunteer.name }} |
+                    E-mail {{ volunteer.email }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p> No volunteer present.</p>
+{% endif %}

@@ -1,21 +1,13 @@
-"""volunteering URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 
+from volunteering_app import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index.Index.as_view(), name='index'),
+    path('organisations/', views.organisation_list_view.OrganisationListView.as_view()),
+    path('volunteers/', views.volunteer_list_view.VolunteerListView.as_view()),
+    path('volunteer/<int:pk>/', views.volunteer_view.VolunteerView.as_view(), name='volunteer'),
+    path('projects/', views.project_list_view.ProjectListView.as_view()),
 ]
