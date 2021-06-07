@@ -6,5 +6,7 @@ class Volunteer(models.Model):
 
     name = models.CharField(max_length=255)
     email = models.EmailField()
+    image = models.ImageField(default='images/profile_default_picture.png')
+
     projects = models.ManyToManyField('Project')
     skills = models.ManyToManyField('Skill')
