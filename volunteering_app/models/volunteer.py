@@ -10,7 +10,7 @@ class Volunteer(models.Model):
     email = models.EmailField()
     # image = models.ImageField(default=DEFAULT_VOLUNTEER_PICTURE)
 
-    projects = models.ManyToManyField('Project')
-    skills = models.ManyToManyField('Skill')
+    projects = models.ManyToManyField('Project', blank=True)
+    skills = models.ManyToManyField('Skill', blank=True)
 
     # HAS social_media

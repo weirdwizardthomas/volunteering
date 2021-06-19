@@ -1,6 +1,6 @@
 from django.db import models
 
-from volunteering_app.models.contact_person import ContactPerson
+from .contact_person import ContactPerson
 
 DEFAULT_ORGANISATION_PICTURE = ...
 
