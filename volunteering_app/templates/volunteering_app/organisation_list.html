@@ -1,9 +1,0 @@
-{% if organisation_list %}
-    <ul>
-        {% for organisation in organisation_list %}
-            <li> Name: {{ organisation.name }} | {{ organisation.description }} </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p> No organisations present.</p>
-{% endif %}
