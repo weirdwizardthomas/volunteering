@@ -5,7 +5,7 @@ from volunteering_app.models import Project
 from volunteering_app.serialisers.project_serialiser import ProjectSerialiser
 
 
-class ProjectsViewSet(viewsets.ModelViewSet):
+class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerialiser
 

@@ -5,7 +5,7 @@ from volunteering_app.models import Organisation
 from volunteering_app.serialisers.organisation_serialiser import OrganisationSerialiser
 
 
-class OrganisationsViewSet(viewsets.ModelViewSet):
+class OrganisationViewSet(viewsets.ModelViewSet):
     queryset = Organisation.objects.all()
     serializer_class = OrganisationSerialiser
 
