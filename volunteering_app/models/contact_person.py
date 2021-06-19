@@ -14,4 +14,5 @@ class ContactPerson(models.Model):
 
     # HAS social media
 
-
+    def __str__(self):
+        return STR_FORMAT.format(name=self.name, id=self.id)

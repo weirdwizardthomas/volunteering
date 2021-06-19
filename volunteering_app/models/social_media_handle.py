@@ -8,6 +8,14 @@ class SocialMediaName(models.TextChoices):
     INSTAGRAM = 'Instagram'
 
 
+IMAGES = {
+    SocialMediaName.TWITTER: 'images/social-media/twitter/Twitter logo/SVG/Logo blue.svg',
+    SocialMediaName.FACEBOOK: 'images/social-media/facebook',
+    SocialMediaName.INSTAGRAM: '',
+    SocialMediaName.LINKEDIN: 'images/social-media/linkedin',
+}
+
+
 class OrganisationSocialMediaHandle(models.Model):
     name = models.CharField(choices=SocialMediaName.choices, max_length=255)
     link = models.URLField()
@@ -30,11 +38,3 @@ class ProjectSocialMediaHandle(models.Model):
     name = models.CharField(choices=SocialMediaName.choices, max_length=255)
     link = models.URLField()
     owner = models.ForeignKey('Project', on_delete=models.CASCADE)
-
-
-IMAGES = {
-    SocialMediaName.TWITTER: 'images/social-media/twitter/Twitter logo/SVG/Logo blue.svg',
-    SocialMediaName.FACEBOOK: 'images/social-media/facebook',
-    SocialMediaName.INSTAGRAM: '',
-    SocialMediaName.LINKEDIN: 'images/social-media/linkedin',
-}

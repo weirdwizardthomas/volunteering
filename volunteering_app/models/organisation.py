@@ -4,6 +4,8 @@ from .contact_person import ContactPerson
 
 DEFAULT_ORGANISATION_PICTURE = ...
 
+STR_TEMPLATE = '{name} | id: {id}'
+
 
 class Organisation(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
@@ -18,3 +20,6 @@ class Organisation(models.Model):
     # HAS social media
 
     # image = models.ImageField(default=DEFAULT_ORGANISATION_PICTURE)
+
+    def __str__(self):
+        return STR_TEMPLATE.format(name=self.name, id=self.id)

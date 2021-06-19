@@ -4,6 +4,7 @@ from .contact_person import ContactPerson
 from .volunteer import Volunteer
 
 DEFAULT_PROJECT_PICTURE = ...
+STR_TEMPLATE = '{project_name} | {organisation_name} | id: {id}'
 
 
 class Project(models.Model):
@@ -35,3 +36,6 @@ class Project(models.Model):
     contact_persons = models.ManyToManyField('ContactPerson', through=ContactPerson.projects.through)
 
     # image = models.ImageField(default=DEFAULT_PROJECT_PICTURE)
+
+    def __str__(self):
+        return STR_TEMPLATE.format(project_name=self.name, organisation_name=self.owner.name, id=self.id)
