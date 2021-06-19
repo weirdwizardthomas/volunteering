@@ -14,10 +14,10 @@ class ProjectViewSet(viewsets.ModelViewSet):
         return self.get_queryset().get(id=id)
 
     def list(self, request, **kwargs):
-        serialiser = self.serializer_class(self.queryset, many=True)
+        serialiser = self.serializer_class(self.queryset, many=True, context={'request': request})
         return Response(serialiser.data)
 
     def retrieve(self, request, *args, **kwargs):
         instance = self._get_object()
-        serialiser = self.serializer_class(instance)
+        serialiser = self.serializer_class(instance, context={'request': request})
         return Response(serialiser.data)
