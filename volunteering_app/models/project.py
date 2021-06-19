@@ -21,12 +21,7 @@ class Project(models.Model):
 
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=1024)
-
-    date_created = models.DateTimeField(auto_now_add=True)
-
-    name = models.CharField(max_length=255)
     owner = models.ForeignKey('Organisation', on_delete=models.CASCADE)
-    description = models.CharField(max_length=1024)
 
     # todo create an extra entity holding status and date to track the progress
 
