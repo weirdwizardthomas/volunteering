@@ -9,11 +9,18 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import Button from "@material-ui/core/Button";
 import ListItemMenu from "./list_item_menu";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import LinkIcon from '@material-ui/icons/Link';
 
 class ProjectListItem extends React.Component {
 
     static DEFAULT_PROFILE_IMAGE = '/assets/images/img.png';
     static PROFILE_IMAGE_TITLE = 'Project';
+
+    constructor(props) {
+        super(props);
+
+        this.emailTarget = `mailto:${this.props.item.email}`; // todo extract this constant
+    }
 
     render() {
         return <Card variant="outlined" style={{width: "250px"}}>
@@ -26,11 +33,11 @@ class ProjectListItem extends React.Component {
                 <h1>{this.props.item.name}</h1>
                 <h2>Run by {this.props.item.organisation}</h2>
                 <p>{this.props.item.description}</p>
+                <p><a href={this.props.item.website}>Website</a></p>
             </CardContent>
             {/*do make actions collapseable?*/}
 
             <CardActions>
-                <IconButton href=""><FavoriteBorderIcon/></IconButton>
                 <IconButton href=""><ShareIcon/></IconButton>
                 <IconButton href={this.emailTarget}><MailOutlineIcon/></IconButton>
                 <Button href={this.profileLink}>Details</Button>

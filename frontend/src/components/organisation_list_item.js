@@ -12,11 +12,18 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import Button from "@material-ui/core/Button";
 
 import ListItemMenu from "./list_item_menu";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
 
 class OrganisationListItem extends React.Component {
 
     static DEFAULT_PROFILE_IMAGE = '/assets/images/img.png';
     static PROFILE_IMAGE_TITLE = 'Organisation';
+
+    constructor(props) {
+        super(props);
+
+        this.emailTarget = `mailto:${this.props.item.email}`; // todo extract this constant
+    }
 
     render() {
         return (
@@ -34,8 +41,8 @@ class OrganisationListItem extends React.Component {
                 </CardContent>
 
                 <CardActions>
-                    <IconButton href=""><FavoriteBorderIcon/></IconButton>
                     <IconButton href=""><ShareIcon/></IconButton>
+                    <IconButton href={this.emailTarget}><MailOutlineIcon/> </IconButton>
                     <Button href="">Details</Button>
                     <IconButton><ListItemMenu/></IconButton>
                 </CardActions>

@@ -13,7 +13,8 @@ const ITEM_HEIGHT = 48;
 class ListItemMenu extends React.Component {
 
     static OPTIONS = [
-        'Report'
+        'Report',
+        'Share',
     ];
 
     constructor(props) {

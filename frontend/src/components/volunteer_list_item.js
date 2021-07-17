@@ -22,7 +22,7 @@ class VolunteerListItem extends React.Component {
 
     constructor(props) {
         super(props);
-        this.emailTarget = `mailto:${this.props.item.email}`;
+        this.emailTarget = `mailto:${this.props.item.email}`; // todo extract this constant
         this.profileLink = `volunteer/${this.props.item.id}`;
     }
 
@@ -37,11 +37,11 @@ class VolunteerListItem extends React.Component {
                 <CardContent>
                     <h1>{this.props.item.name}</h1>
                     <p>{this.props.item.description}</p>
+                    <p>{this.emailTarget}</p>
                 </CardContent>
 
                 {/*do make actions collapseable?*/}
                 <CardActions>
-                    <IconButton href=""><FavoriteBorderIcon/></IconButton>
                     <IconButton href=""><ShareIcon/></IconButton>
                     <IconButton href={this.emailTarget}><MailOutlineIcon/></IconButton>
                     <Button href={this.profileLink}>Details</Button>

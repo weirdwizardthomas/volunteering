@@ -9,100 +9,36 @@ import NavigationBar from './navigation_bar';
 import VolunteerList from "./volunteer_list";
 import VolunteerPage from "./volunteer";
 
+import Volunteer from "../models/volunteer";
+import Project from "../models/project";
+import Organisation from "../models/organisation";
+
 class Container extends React.Component {
     constructor(props) {
         super(props);
 
         const timestamp = Date.now();
         const email = "koristka.tom@gmail.com";
-
         const image = 'assets/images/img.png';
+
         this.state = {
             organisations: [
-                {
-                    id: 1,
-                    name: 'org1',
-                    description: 'desc1',
-                    projects: ['a', 'b', 'c']
-                },
-                {
-                    id: 2,
-                    name: 'org2',
-                    description: 'desc2',
-                    projects: ['d', 'e', 'f']
-                },
-                {
-                    id: 3,
-                    name: 'org3',
-                    description: 'desc3',
-                    projects: ['g', 'h', 'i']
-                },
-                {
-                    id: 4,
-                    name: 'org4',
-                    description: 'desc4',
-                    projects: ['j', 'k', 'l']
-                }
+                new Organisation(1, 'org1', email, 'description1', 'google.com', ['a', 'b', 'c'], image),
+                new Organisation(2, 'org2', email, 'description2', 'google.com', ['a', 'b', 'c'], image),
+                new Organisation(3, 'org3', email, 'description3', 'google.com', ['a', 'b', 'c'], image),
+                new Organisation(4, 'org4', email, 'description4', 'google.com', ['a', 'b', 'c'], image),
             ],
             projects: [
-                {
-                    id: 1,
-                    name: 'proj1',
-                    description: 'desc1',
-                    organisation: 'org1'
-                },
-                {
-                    id: 2,
-                    name: 'proj2',
-                    description: 'desc2',
-                    organisation: 'org2'
-                },
-                {
-                    id: 3,
-                    name: 'proj3',
-                    description: 'desc3',
-                    organisation: 'org3'
-                },
-                {
-                    id: 4,
-                    name: 'proj4',
-                    description: 'desc4',
-                    organisation: 'org4'
-                }
+                new Project(1, 'proj1', 'desc1', 'org1', 'google.com', image),
+                new Project(2, 'proj2', 'desc2', 'org2', 'google.com', image),
+                new Project(3, 'proj3', 'desc3', 'org3', 'google.com', image),
+                new Project(4, 'proj4', 'desc4', 'org4', 'google.com', image),
             ],
             volunteers: [
-                {
-                    id: 1,
-                    name: 'vol1',
-                    description: 'desc1',
-                    image: image,
-                    created: timestamp,
-                    email: email
-                },
-                {
-                    id: 2,
-                    name: 'vol2',
-                    description: 'desc2',
-                    image: image,
-                    created: timestamp,
-                    email: email
-                },
-                {
-                    id: 3,
-                    name: 'vol3',
-                    description: 'desc3',
-                    image: image,
-                    created: timestamp,
-                    email: email
-                },
-                {
-                    id: 4,
-                    name: 'vol4',
-                    description: 'desc4',
-                    image: image,
-                    created: timestamp,
-                    email: email
-                }
+                new Volunteer(1, 'vol1', email, 'desc1', image, timestamp),
+                new Volunteer(2, 'vol2', email, 'desc2', image, timestamp),
+                new Volunteer(3, 'vol3', email, 'desc3', image, timestamp),
+                new Volunteer(4, 'vol4', email, 'desc4', image, timestamp),
             ]
         };
     }
